@@ -1,0 +1,103 @@
+%Fuzzy系統有四大區域，包含System,Inputs,Outputs和Rules。
+
+[System]
+
+Name = 'machine';  %machine.fis
+
+Type = 'mamdani';  %Mamdani style    
+
+NumInputs = 2;  %有兩個輸入變數
+
+NumOutputs = 2;  %有兩個輸出變數
+
+NumRules = 2;  %有兩條規則
+
+AndMethod = 'min';  %定義推論過程中所用之運算子
+
+OrMethod = 'max';
+
+ImpMethod = 'min';
+
+AggMethod = 'max';
+
+DefuzzMethod = 'centroid';  %重心法
+
+ 
+
+[Input1]  %定義第一輸入變數
+
+Name = 'Amount_of_cloth';  %變數名稱
+
+Range = [0 10];  %變數範圍
+
+NumMFs = 3;  %分三個程度或歸屬函數
+
+MF1 = 'less':'trapmf',[0 0 2 5];  %第一歸屬函數定義
+
+MF2 = 'ordinary':'trapmf',[2 5 8];  %第二歸屬函數定義
+
+MF3 = 'more':'trapmf',[5 8 10 10];  %第三歸屬函數定義
+
+ 
+
+[Input2]  %定義第二輸入變數
+
+Name = 'Fabric_of_cloth';           
+
+Range = [0 10];         
+
+NumMFs = 4;               
+
+MF1 = 'soft':'trapmf',[0 0 2 4];
+
+MF2 = 'ordinary_soft':'trapmf',[2 4 7];
+
+MF3 = 'ordinary_stiff':'trapmf',[4 7 9];
+
+MF4 = 'stiff':'trapmf',[7 9 10 10];
+
+ 
+
+[Output1];  %定義輸出變數
+
+Name = 'water_volume';
+
+Range =[0 300];
+ 
+NumMFs = 4;
+
+MF1 = 'few':'trimf',[0 0 60 120];
+
+MF2 = 'median':'trimf',[60 120 210];
+
+MF3 = 'more':'trimf',[120 210 270];
+
+MF4 = 'very more':'trimf',[210 270 300 300];
+
+
+[Output2];  %定義輸出變數
+
+Name = 'washing_time';
+
+Range = [0 60];
+ 
+NumMFs = 3;
+
+MF1 = 'few':'trimf',[0 0 20 40];
+
+MF2 = 'median':'trimf',[20 40 50];
+
+MF3 = 'more':'trimf',[40 50 60 60];
+
+ 
+
+[Rules]  %定義三條規則，用符號表示法
+
+(Amount_of_cloth == more) & (Fabric_of_cloth == ordinary_stiff) => (water_volume == very more)(1)
+(Amount_of_cloth == ordinary) & (Fabric_of_cloth == ordinary_stiff) => (water_volume == median)(1)
+
+%1 1, 1 (1) : 2;
+
+%2 0, 2 (1) : 2;
+
+%3 2, 3 (1) : 2;

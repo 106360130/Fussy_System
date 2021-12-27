@@ -1,5 +1,5 @@
 [System]
-Name='test'
+Name='washing_machine_f'
 Type='mamdani'
 Version=2.0
 NumInputs=2

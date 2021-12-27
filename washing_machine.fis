@@ -2,7 +2,7 @@
 
 [System]
 
-Name = 'machine';  %machine.fis
+Name = 'washing_machine';  %washing_machine.fis
 
 Type = 'mamdani';  %Mamdani style    
 

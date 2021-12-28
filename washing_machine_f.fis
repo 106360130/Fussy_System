@@ -12,38 +12,38 @@ AggMethod='max'
 DefuzzMethod='centroid'
 
 [Input1]
-Name='amount of cloth'
-Range=[0 10]
+Name='Amount of Cloth'
+Range=[0 6]
 NumMFs=3
-MF1='few':'trapmf',[0 0 2 5]
-MF2='medium':'trimf',[2 5 8]
-MF3='more':'trapmf',[5 8 10 10]
+MF1='Light':'trapmf',[0 0 1 2]
+MF2='Medium':'trimf',[1 3 4]
+MF3='Heavy':'trapmf',[3 5 6 6]
 
 [Input2]
-Name='fabric of cloth'
+Name='Fabric of Cloth'
 Range=[0 10]
 NumMFs=4
-MF1='soft':'trapmf',[0 0 2 4]
-MF2='ordinary_soft':'trimf',[2 4.5 6.5]
-MF3='ordinary_stiff':'trimf',[4.5 6.5 9]
-MF4='stiff':'trapmf',[7 9 10 10]
+MF1='Soft':'trapmf',[0 0 2 4]
+MF2='Normally soft':'trimf',[2 4.5 6.5]
+MF3='Normally stiff':'trimf',[4.5 6.5 9]
+MF4='Stiff':'trapmf',[7 9 10 10]
 
 [Output1]
-Name='water_volume'
+Name='The Volume of Water'
 Range=[0 300]
 NumMFs=4
-MF1='few':'trapmf',[0 0 60 130]
-MF2='median':'trimf',[60 130 200]
-MF3='more':'trimf',[130 200 270]
-MF4='very more':'trapmf',[200 270 300 300]
+MF1='Very low':'trapmf',[0 0 60 130]
+MF2='Low':'trimf',[60 130 200]
+MF3='Median':'trimf',[130 200 270]
+MF4='High':'trapmf',[200 270 300 300]
 
 [Output2]
-Name='washing_time'
+Name='Washing time'
 Range=[0 60]
 NumMFs=3
-MF1='few':'trapmf',[0 0 20 40]
-MF2='median':'trimf',[20 35 50]
-MF3='more':'trapmf',[40 50 60 60]
+MF1='Short':'trapmf',[0 0 20 30]
+MF2='Median':'trimf',[20 35 50]
+MF3='Long':'trapmf',[40 50 60 60]
 
 [Rules]
 1 1, 1 1 (1) : 1
